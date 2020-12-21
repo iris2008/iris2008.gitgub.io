@@ -173,6 +173,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="My-Notes"><a href="#My-Notes" class="headerlink" title="My Notes"></a>My Notes</h1><h2 id="Map-object"><a href="#Map-object" class="headerlink" title="Map object"></a>Map object</h2><p>The map is special compare to the others . You cannot call JSON.springify in  console.log to show the contents. You could use forEach of the map or use map.size to just show count of entries.</p>
+<h2 id="Be-careful-about-‘this’"><a href="#Be-careful-about-‘this’" class="headerlink" title="Be careful about ‘this’"></a>Be careful about ‘this’</h2><p>In the world of Javascript , <code>this</code> normally refers to the running context of a function. The code below will not set value to <code>result</code> .</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> result;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.all([pro1, por2, pro3]).then(<span class="function">(<span class="params">values</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;return values to result&quot;</span>);</span><br><span class="line">    <span class="built_in">this</span>.result = values;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
+
+<p>The function calling this pieces of code will get undefined instead of real values.</p>
 
       
 
